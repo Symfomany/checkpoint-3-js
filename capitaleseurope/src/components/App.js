@@ -5,15 +5,19 @@ import datas from "../datas.json";
 import Formulaire from "./Formulaire";
 import DisplayCard from "./DisplayCard";
 import ButtonSupp from "./ButtonSupp";
+import CheckboxFiltre from "./CheckboxFiltre";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      capitales: datas
+      capitales: datas,
+      saveCapitales: [],
+      filtreDispo: false
     };
     this.ajouter = this.ajouter.bind(this);
     this.supp = this.supp.bind(this);
+    this.dispo = this.dispo.bind(this);
   }
 
   ajouter(datas) {
@@ -26,6 +30,25 @@ class App extends Component {
     this.setState({ capitales });
   }
 
+  dispo() {
+    let saveCapitales = [...this.state.saveCapitales];
+    saveCapitales.length === 0
+      ? this.setState({ saveCapitales: this.state.capitales })
+      : null;
+    let capitales = [...this.state.capitales].filter(
+      elt => elt.disponible === true
+    );
+    this.state.filtreDispo === false
+      ? this.setState({
+          capitales,
+          filtreDispo: true
+        })
+      : this.setState({
+          capitales: saveCapitales,
+          filtreDispo: false
+        });
+  }
+
   render() {
     return (
       <Container>
@@ -34,6 +57,7 @@ class App extends Component {
             <h1>Les Capitales Européennes</h1>
           </header>
         </Row>
+        <CheckboxFiltre dispo={this.dispo} />
         <Row>
           {this.state.capitales.map(capitale => (
             <div>
