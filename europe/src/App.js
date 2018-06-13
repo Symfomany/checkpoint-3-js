@@ -4,6 +4,7 @@ import DisplayList from "./DisplayList";
 import { Container } from "reactstrap";
 import CreateCity from "./CreateCity";
 import SelectDisplay from "./SelectDisplay";
+import DisplayMap from "./DisplayMap"
 
 const defaultDatas = datas;
 const defaultPopulation = datas.map(element => element.pop);
@@ -83,6 +84,7 @@ class App extends Component {
         />
         <DisplayList cities={this.state.datas} deleteCity={this.handleDelete} />
         <CreateCity addCity={this.handleSubmit} />
+        <DisplayMap datas={this.state.datas}/>
       </Container>
     );
   }
