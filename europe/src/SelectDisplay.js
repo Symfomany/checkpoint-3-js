@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col } from "reactstrap";
 import SelectDisplayCheckbox from "./SelectDisplayCheckbox";
 import SelectDisplayPopulation from "./SelectDisplayPopulation";
+import SelectDisplayCards from "./SelectDisplayCards";
 
 const SelectDisplay = props => {
   return (
@@ -14,6 +15,9 @@ const SelectDisplay = props => {
           population={props.population}
           filterPop={props.filterPop}
         />
+      </Col>
+      <Col xs="12" md="10">
+      <SelectDisplayCards numberCities={props.numberCities} />
       </Col>
     </Row>
   );

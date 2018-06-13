@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       datas,
-      population: defaultPopulation
+      population: defaultPopulation,
     };
   }
   handleSubmit = datasvalues => {
@@ -38,6 +38,19 @@ class App extends Component {
     const newPop = defaultPop.filter(element => element.pop >= value);
     this.setState({ datas: newPop });
   };
+  handleNumberCities = (e) => {
+    if (e.target.value < 10) {
+      const numberCities = [...defaultDatas]
+      numberCities.splice(e.target.value)
+      this.setState({
+        datas: [...numberCities]
+      })
+    } else {
+      this.setState({
+        datas: [...defaultDatas]
+      })
+    }
+  }
   render() {
     return (
       <Container>
@@ -45,6 +58,7 @@ class App extends Component {
           isCheck={this.handleCheck}
           population={this.state.population}
           filterPop={this.handleFilterPop}
+          numberCities={this.handleNumberCities}
         />
         <DisplayList cities={this.state.datas} deleteCity={this.handleDelete} />
         <CreateCity addCity={this.handleSubmit} />
