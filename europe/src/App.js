@@ -51,6 +51,26 @@ class App extends Component {
       })
     }
   }
+  handleOrder = (e) => {
+    const eventValue = parseInt(e.target.value,10)
+    if (eventValue === 1 || eventValue === 2) {
+      let newDatasOrder = [...this.state.datas]
+      newDatasOrder = eventValue === 2 ? newDatasOrder.sort((a,b) => a.title < b.title) : newDatasOrder.sort((a,b) => b.title < a.title)
+      this.setState({
+        datas: [...newDatasOrder]
+      })
+    } else if (eventValue === 3 || eventValue === 4) {
+      let newDatasOrder = [...this.state.datas]
+      newDatasOrder = eventValue === 4 ? newDatasOrder.sort((a,b) => a.pop - b.pop) : newDatasOrder.sort((a,b) => b.pop - a.pop)
+      this.setState({
+        datas: [...newDatasOrder]
+      })
+    } else {
+      this.setState({
+        datas: [...defaultDatas]
+      })
+    }
+  }
   render() {
     return (
       <Container>
@@ -59,6 +79,7 @@ class App extends Component {
           population={this.state.population}
           filterPop={this.handleFilterPop}
           numberCities={this.handleNumberCities}
+          changeOrder={this.handleOrder}
         />
         <DisplayList cities={this.state.datas} deleteCity={this.handleDelete} />
         <CreateCity addCity={this.handleSubmit} />

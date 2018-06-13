@@ -3,6 +3,7 @@ import { Row, Col } from "reactstrap";
 import SelectDisplayCheckbox from "./SelectDisplayCheckbox";
 import SelectDisplayPopulation from "./SelectDisplayPopulation";
 import SelectDisplayCards from "./SelectDisplayCards";
+import SelectDisplayClassement from "./SelectDisplayClassement";
 
 const SelectDisplay = props => {
   return (
@@ -18,6 +19,9 @@ const SelectDisplay = props => {
       </Col>
       <Col xs="12" md="10">
       <SelectDisplayCards numberCities={props.numberCities} />
+      </Col>
+      <Col xs="12" md="10">
+      <SelectDisplayClassement changeOrder={props.changeOrder}/>
       </Col>
     </Row>
   );
