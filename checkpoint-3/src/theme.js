@@ -12,14 +12,7 @@ const theme = {
       dark: "#ba000d",
       contrastText: "#000"
     }
-  },
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
   }
-  // formControl: {
-  //   margin: theme.spacing.unit
-  // }
 };
 
 export default theme;
