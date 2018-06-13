@@ -33,7 +33,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header" />
         <Recherche search={this.search} />
         <Liste villes={this.state.villes} villesDelete={this.delete} />
         <Formulaire addVilles={this.addVilles} />

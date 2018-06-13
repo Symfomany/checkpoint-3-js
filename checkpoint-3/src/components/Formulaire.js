@@ -1,4 +1,19 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+
+const styles = theme => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  formControl: {
+    margin: theme.spacing.unit
+  }
+});
 
 class Formulaire extends Component {
   constructor(props) {
@@ -47,62 +62,70 @@ class Formulaire extends Component {
 
   handle;
   render() {
+    const { classes } = this.props;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3>Ajouter une capitale</h3>
-        <br />
-        <label htmlFor="title">Ville</label>
-        <input
-          type="text"
-          id="title"
-          placeholder="Capitale"
-          onChange={this.handleTitle}
-        />
-        <label htmlFor="description">Description</label>
-        <textarea
-          name="description"
-          id="description"
-          onChange={this.handleDesc}
-        />
-        <label htmlFor="longitude">Longitude</label>
-        <input
-          type="text"
-          placeholder="Longitude"
-          id="longitude"
-          onChange={this.handleLong}
-        />
-        <label htmlFor="latitude">Latitude</label>
-        <input
-          type="text"
-          placeholder="Latitude"
-          id="latitude"
-          onChange={this.handleLat}
-        />
-        <label htmlFor="population">Population</label>
-        <input
-          type="text"
-          placeholder="Population"
-          id="population"
-          onChange={this.handlePop}
-        />
-        <label htmlFor="img">Image</label>
-        <input
-          type="text"
-          id="img"
-          placeholder="url de l'image"
-          onChange={this.handleImg}
-        />
-        <label htmlFor="disponible">Disponible</label>
-        <input
-          type="checkbox"
-          id="disponilble"
-          name="disponible"
-          onChange={event => this.setState({ disponible: true })}
-        />
-        <button type="submit">Ajouter un utilisateur</button>
-      </form>
+      <div className={classes.container}>
+        <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+          <h3>Ajouter une capitale</h3>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="title">Ville</InputLabel>
+            <Input
+              type="text"
+              id="title"
+              placeholder="Capitale"
+              onChange={this.handleTitle}
+            />
+          </FormControl>
+          <label htmlFor="description">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            onChange={this.handleDesc}
+          />
+          <label htmlFor="longitude">Longitude</label>
+          <input
+            type="text"
+            placeholder="Longitude"
+            id="longitude"
+            onChange={this.handleLong}
+          />
+          <label htmlFor="latitude">Latitude</label>
+          <input
+            type="text"
+            placeholder="Latitude"
+            id="latitude"
+            onChange={this.handleLat}
+          />
+          <label htmlFor="population">Population</label>
+          <input
+            type="text"
+            placeholder="Population"
+            id="population"
+            onChange={this.handlePop}
+          />
+          <label htmlFor="img">Image</label>
+          <input
+            type="text"
+            id="img"
+            placeholder="url de l'image"
+            onChange={this.handleImg}
+          />
+          <label htmlFor="disponible">Disponible</label>
+          <input
+            type="checkbox"
+            id="disponible"
+            name="disponible"
+            onChange={event => this.setState({ disponible: true })}
+          />
+          <button type="submit">Ajouter un utilisateur</button>
+        </form>
+      </div>
     );
   }
 }
 
-export default Formulaire;
+Formulaire.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Formulaire);
