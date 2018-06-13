@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Container, Button, Form, FormGroup, Label, Input, FormText, Col, CustomInput } from 'reactstrap';
 
 
+
+
 class Capitales extends Component {
     constructor(props) {
         super(props);
@@ -12,11 +14,18 @@ class Capitales extends Component {
             lat: "",
             pop: "",
             img: "",
-            disponible: false
+            disponible: true
         };
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.toggleChange = this.toggleChange.bind(this)
 
+    }
+
+    toggleChange() {
+        this.setState({
+            disponible: !this.state.disponible,
+        });
     }
 
     handleSubmit(e) {
@@ -29,6 +38,8 @@ class Capitales extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
+
+
 
         this.setState({
             [name]: value
@@ -89,8 +100,9 @@ class Capitales extends Component {
                             <FormGroup check>
                                 <Label sm={{ size: 1, offset: 1 }} check>Ville visible ?
                     <Col sm={8}>
-                                        <Input id="disponible" onChange={this.handleChange} checked={this.state.disponible} type="checkbox" />{' '}
+                                        <Input id="disponible" onChange={this.toggleChange} checked={this.state.disponible} type="checkbox" />{' '}
                                         Oui
+
                         </Col>
                                 </Label>
                             </FormGroup>

@@ -52,6 +52,8 @@ class CapitalesList extends Component {
                                         <CardText className="text-center">{data.description}</CardText>
                                         <CardText className="text-center" >Latitude : {data.lat}</CardText>
                                         <CardText className="text-center">Longitude : {data.lng}</CardText>
+                                        <CardText className="text-center">Longitude : {data.lng}</CardText>
+                                        {data.disponible === true ? <CardText className="text-center">Disponible : oui</CardText> : <CardText className="text-center">Disponible : non</CardText>}
                                         <ButtonRemove removeCity={this.removeCity} id={data.id} />
                                     </CardBody>
                                 </Card>
