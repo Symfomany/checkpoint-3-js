@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 
 class ButtonRemove extends Component {
@@ -9,19 +9,18 @@ class ButtonRemove extends Component {
         this.removeCity = this.removeCity.bind(this)
     }
 
-removeCity(e){        
-    e.preventDefault();
-        this.props.RemoveCity(this.state)
+    removeCity(e) {
+        e.preventDefault();
+        this.props.removeCity(this.props.id)
     }
 
-  render() {
-    return (
-      <div>
-       <Button onClick={this.removeCity}>supprimer</Button>
-
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <Button onClick={this.removeCity}>supprimer</Button>
+            </div>
+        );
+    }
 }
 
 export default ButtonRemove;

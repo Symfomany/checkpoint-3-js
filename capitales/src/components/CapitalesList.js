@@ -3,7 +3,7 @@ import Capitales from "./Capitales"
 import datas from "./datas.json";
 import {
     Col,
-    Card, CardImg, CardText, CardBody, 
+    Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Container, Row
 } from 'reactstrap';
 import ButtonRemove from "./ButtonRemove"
@@ -13,7 +13,7 @@ class CapitalesList extends Component {
         super(props);
         this.state = {
             cities: datas
-                    };
+        };
         this.handleData = this.handleData.bind(this)
         this.removeCity = this.removeCity.bind(this)
     }
@@ -52,7 +52,7 @@ class CapitalesList extends Component {
                                         <CardText className="text-center">{data.description}</CardText>
                                         <CardText className="text-center" >Latitude : {data.lat}</CardText>
                                         <CardText className="text-center">Longitude : {data.lng}</CardText>
-                                        <ButtonRemove removeCity={this.removeCity} id={data.id}/>
+                                        <ButtonRemove removeCity={this.removeCity} id={data.id} />
                                     </CardBody>
                                 </Card>
                             </Col>
@@ -60,7 +60,7 @@ class CapitalesList extends Component {
                     </Row>
                     <Capitales add={this.handleData} />
                 </Container>
-                
+
             </div>
 
 
