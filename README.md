@@ -2,7 +2,7 @@
 
 - Ce Checkpoint 3 comporte 2 exercices, vous avez 4 heures.
 - Prenez le temps de bien faire, l'objectif n'est pas de tout finir...
-- Lisez les messages d'erreurs, ne rester pas blocker non plus.
+- Lisez les messages d'erreurs, ne restez pas blocké non plus 1h sur un même problème.
 
 ## Algorithme
 
