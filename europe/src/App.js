@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { Component } from "react";
+import datas from "./datas.json";
+import DisplayList from "./DisplayList";
+import { Container } from "reactstrap";
+import CreateCity from "./CreateCity";
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      datas
+    };
+  }
+  handleDelete = index => {
+    this.state.datas.splice(index, 1);
+    this.setState({ datas: [...this.state.datas] });
+  };
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Container>
+        <DisplayList cities={this.state.datas} deleteCity={this.handleDelete} />
+        <CreateCity />
+      </Container>
     );
   }
 }
