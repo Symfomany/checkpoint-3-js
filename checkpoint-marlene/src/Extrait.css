@@ -1,0 +1,12 @@
+.card {
+  width: 100%;
+  margin-top: 2%;
+  float: left;
+}
+.CardTitle {
+  color: grey;
+}
+.rechercher {
+  width: 35%;
+  float: left;
+}
