@@ -15,14 +15,16 @@ class Formulaire extends Component {
       img: "",
       disponible: ""
     };
+    
     this.submitDatas = this.submitDatas.bind(this);
     this.changeDatas = this.changeDatas.bind(this);
   }
   submitDatas(e) {
     e.preventDefault();
-    // const newCity: {this.state.title}
+    const newCity= this.state
+
     this.setState({ dataSubmit: e.target.value });
-    console.log(e.target.value);
+    console.log(newCity);
   }
   changeDatas(e){
     //   console.log(e.target.name , e.target.value);
