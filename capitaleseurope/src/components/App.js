@@ -4,6 +4,7 @@ import { Container, Row } from "reactstrap";
 import datas from "../datas.json";
 import Formulaire from "./Formulaire";
 import DisplayCard from "./DisplayCard";
+import ButtonSupp from "./ButtonSupp";
 
 class App extends Component {
   constructor(props) {
@@ -12,10 +13,16 @@ class App extends Component {
       capitales: datas
     };
     this.ajouter = this.ajouter.bind(this);
+    this.supp = this.supp.bind(this);
   }
 
   ajouter(datas) {
     let capitales = this.state.capitales.concat(datas);
+    this.setState({ capitales });
+  }
+
+  supp(ville) {
+    let capitales = [...this.state.capitales].filter(elt => elt.id !== ville);
     this.setState({ capitales });
   }
 
@@ -31,6 +38,7 @@ class App extends Component {
           {this.state.capitales.map(capitale => (
             <div>
               <DisplayCard detail={capitale} />
+              <ButtonSupp supp={this.supp} id={capitale.id} />
             </div>
           ))}
         </Row>
