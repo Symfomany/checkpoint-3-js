@@ -1,0 +1,22 @@
+.titre {
+    font-size: 2rem;
+    color: darkblue;
+    text-align: center;
+}
+
+.card {
+    text-align: center;
+    border: 1px solid black;
+    margin: 20px;
+    box-shadow: 1px 1px 1px 1px #000;
+}
+
+.fond {
+    background-color: rgb(157, 183, 233);
+}
+
+.formulaire {
+    background-color: #FFF;
+    color: darkslategray;
+    box-shadow: 2px 1px 1px 1px
+}
