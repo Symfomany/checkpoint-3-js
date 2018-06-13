@@ -1,19 +1,8 @@
 function onlyLetterOrSpace(sentence) {
-  const regex = new RegExp("[a-z]+", "gi");
+  const regex = new RegExp("[a-z]+", "i");
   return [...sentence].filter(elt => regex.test(elt)).join("");
 }
 
-function toAlternatingCase(sentence) {
-  if (sentence === "" || !isNaN(sentence)) {
-    return null;
-  }
-  let result = onlyLetterOrSpace(sentence);
-
-  return result;
-}function onlyLetterOrSpace(sentence) {
-  const regex = new RegExp("[a-z ]+", "i");
-  return [...sentence].filter(elt => regex.test(elt)).join("");
-}
 
 function toAlternatingCase(sentence) {
   if (sentence === "" || !isNaN(sentence)) {
