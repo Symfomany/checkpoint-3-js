@@ -31,7 +31,7 @@ const DisplayList = props => {
               </Button>
             </CardBody>
             {!city.disponible && (
-              <CardFooter className="text-muted">No disponibility</CardFooter>
+              <CardFooter className="text-muted">Not available</CardFooter>
             )}
           </Card>
         </Col>
