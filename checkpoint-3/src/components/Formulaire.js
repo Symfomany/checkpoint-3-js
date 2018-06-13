@@ -8,7 +8,6 @@ import Button from "@material-ui/core/Button";
 import Switch from "@material-ui/core/Switch";
 import purple from "@material-ui/core/colors/purple";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import InputAdornment from "@material-ui/core/InputAdornment";
 
 const styles = theme => ({
   container: {
