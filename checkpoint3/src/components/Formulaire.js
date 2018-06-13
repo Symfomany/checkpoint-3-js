@@ -1,42 +1,38 @@
 import React, { Component } from "react";
-
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import Liste from "./Liste";
 
 class Formulaire extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: "",
       title: "",
       description: "",
       lgn: "",
       lat: "",
       pop: "",
       img: "",
-      disponible: ""
+      disponible: false
     };
-    
+
     this.submitDatas = this.submitDatas.bind(this);
     this.changeDatas = this.changeDatas.bind(this);
   }
   submitDatas(e) {
     e.preventDefault();
-    const newCity= this.state
-
-    this.setState({ dataSubmit: e.target.value });
-    console.log(newCity);
+    this.props.addCity(this.state);
   }
-  changeDatas(e){
-    //   console.log(e.target.name , e.target.value);
-this.setState({[e.target.name] : e.target.value})
-
+  //mise a jour du state à chaque ajout d'une lettre dans formulaire
+  changeDatas(e) {
+    // console.log(this.props.datas.length);
+    this.setState({ id: this.props.dataLength });
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   onChange(e) {}
   render() {
- 
-    return <div>
-        <Liste newDatas={this.state.dataSubmit} />
+    return (
+      <div>
         <div className="container">
           <Form onSubmit={this.submitDatas}>
             <FormGroup row>
@@ -44,7 +40,13 @@ this.setState({[e.target.name] : e.target.value})
                 title :
               </Label>
               <Col sm={10}>
-                <Input onChange={this.changeDatas} type="text" name="title" id="title" placeholder="Capitale" />
+                <Input
+                  onChange={this.changeDatas}
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="Capitale"
+                />
               </Col>
             </FormGroup>
 
@@ -55,7 +57,13 @@ this.setState({[e.target.name] : e.target.value})
                     latitude :
                   </Label>
                   <Col sm={8}>
-                    <Input onChange={this.changeDatas} type="text" name="lat" id="latitude" placeholder="Latitude" />
+                    <Input
+                      onChange={this.changeDatas}
+                      type="text"
+                      name="lat"
+                      id="latitude"
+                      placeholder="Latitude"
+                    />
                   </Col>
                 </Row>
               </Col>
@@ -65,7 +73,13 @@ this.setState({[e.target.name] : e.target.value})
                     longitude :
                   </Label>
                   <Col sm={8}>
-                    <Input onChange={this.changeDatas} type="text" name="lng" id="longitude" placeholder="longitude" />
+                    <Input
+                      onChange={this.changeDatas}
+                      type="text"
+                      name="lng"
+                      id="longitude"
+                      placeholder="longitude"
+                    />
                   </Col>
                 </Row>
               </Col>
@@ -76,7 +90,12 @@ this.setState({[e.target.name] : e.target.value})
                 Description
               </Label>
               <Col sm={10}>
-                <Input type="textarea" onChange={this.changeDatas} name="description" id="Description" />
+                <Input
+                  type="textarea"
+                  onChange={this.changeDatas}
+                  name="description"
+                  id="Description"
+                />
               </Col>
             </FormGroup>
 
@@ -87,7 +106,13 @@ this.setState({[e.target.name] : e.target.value})
                     population :
                   </Label>
                   <Col sm={8}>
-                    <Input onChange={this.changeDatas} type="number" name="pop" id="population" placeholder="population" />
+                    <Input
+                      onChange={this.changeDatas}
+                      type="number"
+                      name="pop"
+                      id="population"
+                      placeholder="population"
+                    />
                   </Col>
                 </Row>
               </Col>
@@ -97,7 +122,13 @@ this.setState({[e.target.name] : e.target.value})
                     image :
                   </Label>
                   <Col sm={8}>
-                    <Input onChange={this.changeDatas} type="text" name="img" id="image" placeholder="image" />
+                    <Input
+                      onChange={this.changeDatas}
+                      type="text"
+                      name="img"
+                      id="image"
+                      placeholder="image"
+                    />
                   </Col>
                 </Row>
               </Col>
@@ -110,19 +141,26 @@ this.setState({[e.target.name] : e.target.value})
               <Col sm={{ size: 10 }}>
                 <FormGroup check>
                   <Label check>
-                    <Input onChange={this.changeDatas} type="checkbox" id="Disponible" name="disponible" /> Disponible
+                    <Input
+                      onChange={e=>this.setState({disponible: e.target.checked})}
+                      type="checkbox"
+                      id="Disponible"
+                      name="disponible"
+                    />{" "}
+                    Disponible
                   </Label>
                 </FormGroup>
               </Col>
             </FormGroup>
             <FormGroup check row>
               <Col sm={{ size: 10, offset: 2 }}>
-                <Button>Submit</Button>
+                <Button type="submit">Submit</Button>
               </Col>
             </FormGroup>
           </Form>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 

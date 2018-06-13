@@ -8,33 +8,30 @@ import {
   CardSubtitle,
   Button
 } from "reactstrap";
-import Datas from "../json/datas";
+
 
 class Liste extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      datas: Datas
-    };
-    this.deleteCard=this.deleteCard.bind(this);
+   
+   this.delete= this.delete.bind(this)
   }
 
-deleteCard(e){
-  console.log(e.target.id);
-  const id = e.target.id
-  const initialDatas = this.state.datas
-  const newDatas = initialDatas.filter(elt => elt.id !== Number(id));
-  this.setState({datas: newDatas})
-}
+  delete(e){
+    // console.log(e.target.id);
+    this.props.deleteCard(e.target.id)
+  }
+
 
   render() {
-    const dataState = this.state.datas;
-    const newData = this.props.newDatas;
+    const dataState = this.props.datas;
+  
     return (
       <div>
         <div className="container">
-          <p>{newData}</p>
+          
           <div className="row">
+          {/* liste des villes */}
             {dataState.map(elt => (
               <div className="col-3">
                 <Card>
@@ -57,7 +54,7 @@ deleteCard(e){
                         <i className="fas fa-times" />
                       )}
                     </p>
-                    <Button id={elt.id}  onClick={this.deleteCard}>Supprimer </Button>
+                    <Button id={elt.id}  onClick={this.delete}>Supprimer </Button>
                   </CardBody>
                 </Card>
               </div>
