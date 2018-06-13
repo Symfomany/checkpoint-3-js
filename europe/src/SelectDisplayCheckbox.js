@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, FormGroup, Label, Input } from "reactstrap";
+import { FormGroup, Label, Input } from "reactstrap";
 
 const SelectDisplayCheckbox = props => {
   return (

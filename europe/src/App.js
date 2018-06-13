@@ -15,9 +15,9 @@ class App extends Component {
       population: defaultPopulation
     };
   }
-  handleSubmit = () => {
-    alert("Not available yet !")
-  }
+  handleSubmit = datasvalues => {
+    this.setState({ datas: [...this.state.datas, datasvalues] });
+  };
   handleDelete = index => {
     this.state.datas.splice(index, 1);
     this.setState({ datas: [...this.state.datas] });
@@ -47,7 +47,7 @@ class App extends Component {
           filterPop={this.handleFilterPop}
         />
         <DisplayList cities={this.state.datas} deleteCity={this.handleDelete} />
-        <CreateCity isSubmit={this.handleSubmit} />
+        <CreateCity addCity={this.handleSubmit} />
       </Container>
     );
   }
