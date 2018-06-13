@@ -1,10 +1,8 @@
-function toAlternatingCase(arg1) {
-  console.log(arg1);
-
+let toAlternatingCase = arg1 => {
   if (/\d/.test(arg1)) {
     return null;
   }
-  let a = arg1.replace(/_/g, "");
+  const a = arg1.replace(/_/g, "");
 
   let b = a
     .split("")
@@ -14,6 +12,6 @@ function toAlternatingCase(arg1) {
     .join("");
 
   return b;
-}
+};
 
 toAlternatingCase("helLo");
