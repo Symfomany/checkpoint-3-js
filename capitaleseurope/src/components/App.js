@@ -1,16 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import {
-  Container,
-  Row,
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle
-} from "reactstrap";
+import { Container, Row } from "reactstrap";
 import datas from "../datas.json";
 import Formulaire from "./Formulaire";
+import DisplayCard from "./DisplayCard";
 
 class App extends Component {
   constructor(props) {
@@ -37,18 +30,7 @@ class App extends Component {
         <Row>
           {this.state.capitales.map(capitale => (
             <div>
-              <Card className="capitalCards">
-                <CardImg
-                  top
-                  width="100%"
-                  src={capitale.img}
-                  alt="Card image cap"
-                />
-                <CardBody>
-                  <CardTitle>{capitale.title}</CardTitle>
-                  <CardText>{capitale.description}</CardText>
-                </CardBody>
-              </Card>
+              <DisplayCard detail={capitale} />
             </div>
           ))}
         </Row>
